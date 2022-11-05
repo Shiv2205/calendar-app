@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Project Description
+
+Basic calendar application, created with ReactJS, TailwindCSS, and dayJS.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
