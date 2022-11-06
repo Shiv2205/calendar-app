@@ -2,6 +2,10 @@
 
 Basic calendar application, created with ReactJS, TailwindCSS, and dayJS.
 
+## Project Link
+
+A deployed version of the app can be found [here](https://calendar-app-shiv2205.vercel.app/).
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
