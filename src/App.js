@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import generateDate, { months } from "./util/Calendar";
 import cn from "./util/cn";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import MeetingCard from "./MeetingCard";
 
 function App() {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
@@ -93,14 +94,9 @@ function App() {
         <h1 className="font-semibold">
           Schedule for {selectedDate.getDate.toDate().toDateString()}
         </h1>
-        {meetings.map((obj) => {//display meetings, if any]] 
+        {meetings.map((obj) => {//display meetings, if any
           return (
-            <div class="flex justify-left mb-2">
-              <div class={cn(selectedDate.today ? "bg-purple-600 text-white" : "bg-gray-400", "block p-4 rounded-lg shadow-lg w-80")}>
-                <h2 class=" text-xl leading-tight font-medium mb-2">{obj.title}</h2>
-                <p class=" text-base ">{obj.time}</p>
-              </div>
-            </div>
+           <MeetingCard isToday={selectedDate.today} title={obj.title} time={obj.time}/>
           );
         })}
       </div>
