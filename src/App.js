@@ -1,10 +1,11 @@
 import { useState } from "react";
 import dayjs from "dayjs";
-import generateDate, { months } from "./util/Calendar";
+import generateDate from "./util/Calendar";
 import cn from "./util/cn";
-import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 import MeetingCard from "./MeetingCard";
 import Days from "./Days";
+import DateContext from "./util/dateContext";
+import CalendarHeader from "./CalendarHeader";
 
 function App() {
   const currentDate = dayjs();
@@ -13,41 +14,19 @@ function App() {
   const [meetings, setMeetings] = useState([]);
 
   return (
+  <DateContext.Provider value={{
+    currentDate: today,
+    setCurrentDate: setToday,
+    activeDate: selectedDate,
+    setActiveDate: setSelectedDate,
+    DateOfToday: currentDate
+  }}>
     <div className="flex w-1/2 mx-auto divide-x-2 gap-10 h-screen items-center">
+
+
       <div className="w-96 h-96 ">
-        <div className="flex justify-between">
-          <div>
-            <h1 className="font-semibold">
-              {months[today.month()]}, {today.year()}
-            </h1>
-          </div>
-
-          <div className="flex items-center gap-5">
-            <GrCaretPrevious
-              className="cursor-pointer"
-              onClick={() => {
-                setToday(today.month(today.month() - 1));
-              }}
-            />
-
-            <h1
-              className="cursor-pointer"
-              onClick={() => {
-                setToday(currentDate);
-                setSelectedDate({getDate: currentDate, today: true});
-              }}
-            >
-              Today
-            </h1>
-
-            <GrCaretNext
-              className="cursor-pointer"
-              onClick={() => {
-                setToday(today.month(today.month() + 1));
-              }}
-            />
-          </div>
-        </div>
+        
+        <CalendarHeader/>
 
         <Days/>
         
@@ -91,6 +70,7 @@ function App() {
         })}
       </div>
     </div>
+  </DateContext.Provider>
   );
 }
 
