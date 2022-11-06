@@ -4,7 +4,7 @@
  * @returns Joined string of all parameters passed
  */
 const cn = (...classes) => {
-    return classes.filter(Boolean).join(" "); //evalutes predicate; if passed. may take multiple parameters. ret
+    return classes.filter(Boolean).join(" ");
 }
  
 export default cn;
