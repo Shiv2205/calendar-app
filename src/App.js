@@ -4,9 +4,9 @@ import generateDate, { months } from "./util/Calendar";
 import cn from "./util/cn";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 import MeetingCard from "./MeetingCard";
+import Days from "./Days";
 
 function App() {
-  const days = ["S", "M", "T", "W", "T", "F", "S"];
   const currentDate = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState({getDate: currentDate, today: true});
@@ -48,19 +48,9 @@ function App() {
             />
           </div>
         </div>
-        <div className="w-full grid grid-cols-7">
-          {days.map((day, index) => {
-            // S M T...F S
-            return (
-              <h1
-                key={index}
-                className="h-10 grid place-content-center text-sm text-gray-600"
-              >
-                {day}
-              </h1>
-            );
-          })}
-        </div>
+
+        <Days/>
+        
         <div className="w-full grid grid-cols-7">
           {generateDate(today.month(), today.year()).map(
             ({ date, currentMonth, isToday, meetings }, index) => {
