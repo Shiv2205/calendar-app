@@ -1,6 +1,6 @@
-import { months } from "./util/Calendar";
+import { months } from "../util/Calendar";
 import { useContext } from "react";
-import DateContext from "./util/dateContext";
+import DateContext from "../util/dateContext";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 
 const CalendarHeader = () => {
