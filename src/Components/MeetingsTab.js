@@ -5,7 +5,7 @@ import MeetingCard from "./MeetingCard";
 import { GrAddCircle } from 'react-icons/gr';
 import AddMeetingForm from "./AddMeetingForm";
 
-const MeetingsTab = (props) => {
+const MeetingsTab = () => {
 
   const date = useContext(DateContext);
   const calendar = useContext(CalendarContext);

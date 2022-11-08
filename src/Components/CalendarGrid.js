@@ -1,14 +1,14 @@
 //import generateDate from "../util/Calendar";
 import cn from "../util/cn";
 import DateContext from "../util/dateContext";
-import CalendarContext from "../util/calendarContext";
 import { useContext } from "react";
+import generateDate from "../util/Calendar";
 
 const CalendarGrid = (props) => {
   
 
-  const calendar = useContext(CalendarContext);
   const dates = useContext(DateContext);
+  const calendar = generateDate(dates.currentDate.month(), dates.currentDate.year());
   //calendar.datesArray = generateDate(calendar.currentDate.month(), calendar.currentDate.year());
 
   return (
@@ -29,7 +29,7 @@ const CalendarGrid = (props) => {
                 )}
                 onClick={() => {
                   dates.setActiveDate({ getDate: date, today: isToday, dateIndex: index });
-                 props.setMeetings([...meetings]);
+                 //props.setMeetings([...meetings]);
                 }}
               >
                 {date.date()}
