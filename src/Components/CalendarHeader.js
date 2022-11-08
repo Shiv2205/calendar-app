@@ -27,7 +27,7 @@ const CalendarHeader = () => {
             className="cursor-pointer"
             onClick={() => {
               calendar.setCurrentDate(calendar.DateOfToday);
-              calendar.setActiveDate({getDate: calendar.DateOfToday, today: true});
+              calendar.setActiveDate({getDate: calendar.DateOfToday, today: true, dateIndex: 0});
             }}
           >
             Today

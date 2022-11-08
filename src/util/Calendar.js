@@ -1,9 +1,12 @@
 import dayjs from "dayjs";
 
+//let todayIndex = 0;
+
 const generateDate = (month = dayjs().month(), year = dayjs().year()) => {// Value of parameters default to current month and year using dayjs function.
     
     let startOfMonth = dayjs().year(year).month(month).startOf('month');
     let endOfMonth = dayjs().year(year).month(month).endOf('month');
+    
 
     const dates = [];
 
@@ -17,7 +20,7 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {// Val
 
     //generate current dates
     for(let i = startOfMonth.date(); i <= endOfMonth.date(); i++)
-        dates.push({date: startOfMonth.date(i), currentMonth: true, isToday: startOfMonth.date(i).isSame(dayjs().toDate().toDateString(), 'day'), 
+    {   dates.push({date: startOfMonth.date(i), currentMonth: true, isToday: startOfMonth.date(i).isSame(dayjs().toDate().toDateString(), 'day'), 
         meetings: [{
             title: 'Some other important meeting',
             time: startOfMonth.day(i).hour(5).minute(30).format('HH:mm')
@@ -29,10 +32,12 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {// Val
         }
         ]});
 
+    }
+
     //generate suffix dates
     for(let i = endOfMonth.day() + 1; i < 7; i++)
         dates.push({date: endOfMonth.day(i), currentMonth: false, meetings: []});
-
+    
     return dates;
 }
  
